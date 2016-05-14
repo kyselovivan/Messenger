@@ -15,7 +15,7 @@ public class RecieveMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recieve_message);
         getter = (TextView)findViewById(R.id.messageGetter);
         Intent intent = getIntent();
-        String message =  intent.getStringExtra(EXTRA_MESSAGE);
+        String message =  intent.getStringExtra("hello");
         getter.setText(message);
     }
 }
