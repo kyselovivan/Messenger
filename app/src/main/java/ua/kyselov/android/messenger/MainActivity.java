@@ -35,11 +35,12 @@ public class MainActivity extends AppCompatActivity {
     public void onSendByAnotherMessenger(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
+        Intent intentChooser = Intent.createChooser(intent,"Ghoose a program: ");
         String textTitile = title.getText().toString();
         String text = sender.getText().toString();
         intent.putExtra(Intent.EXTRA_TEXT,text);
         intent.putExtra(Intent.EXTRA_SUBJECT, textTitile);
 
-        startActivity(intent);
+        startActivity(intentChooser);
     }
 }
