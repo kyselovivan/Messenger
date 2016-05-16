@@ -6,38 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MessegeFormActivity extends AppCompatActivity {
 
-
-
-    EditText sender;
-    EditText title;
-    Button sendByGmail;
-
+    EditText reciever;
+    EditText messageForm;
+    Button sendTo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messege_form);
-        sender = (EditText)findViewById(R.id.message);
-        title = (EditText)findViewById(R.id.title);
-        sendByGmail = (Button)findViewById(R.id.send_by_gmail);
-    }
-
-    public void onSendMessage(View view){
-        Intent intent = new Intent(this, RecieveMessageActivity.class);
-        String message = sender.getText().toString();
-        intent.putExtra(RecieveMessageActivity.EXTRA_MESSAGE,message);
-        startActivity(intent);
+        reciever = (EditText)findViewById(R.id.reciever);
+        messageForm = (EditText)findViewById(R.id.message_form);
+        sendTo = (Button)findViewById(R.id.send_from_messageform);
     }
 
     public void onSendByAnotherMessenger(View view){
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         Intent intentChooser = Intent.createChooser(intent,"Ghoose a program: ");
-        String textTitile = title.getText().toString();
-        String text = sender.getText().toString();
+        String textTitile = messageForm.getText().toString();
+        String text = reciever.getText().toString();
         intent.putExtra(Intent.EXTRA_TEXT,text);
         intent.putExtra(Intent.EXTRA_SUBJECT, textTitile);
 
