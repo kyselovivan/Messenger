@@ -10,14 +10,16 @@
         android:id="@+id/reciever"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="To"/>
+        android:hint="To"
+        android:inputType="textWebEmailAddress"/>
     <EditText
         android:id="@+id/message_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Subject"
         android:gravity="top"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:inputType="text"/>
     <Button
         android:id="@+id/send_from_messageform"
         android:layout_width="wrap_content"

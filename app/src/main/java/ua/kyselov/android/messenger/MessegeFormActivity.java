@@ -22,14 +22,17 @@ public class MessegeFormActivity extends AppCompatActivity {
     }
 
     public void onSendByAnotherMessenger(View view){
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        Intent intentChooser = Intent.createChooser(intent,"Ghoose a program: ");
-        String textTitile = messageForm.getText().toString();
         String text = reciever.getText().toString();
-        intent.putExtra(Intent.EXTRA_TEXT,text);
-        intent.putExtra(Intent.EXTRA_SUBJECT, textTitile);
+        String textTitile = messageForm.getText().toString();
+        String [] address = {text};
+        composeMail(address, textTitile);
+    }
 
-        startActivity(intentChooser);
+    public void composeMail(String[] adresses, String text){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_EMAIL,adresses);
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        startActivity(intent);
     }
 }
